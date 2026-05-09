@@ -54,7 +54,7 @@ task_event_filter(void *userdata, SDL_Event *event) {
 
 void
 sc_reject_new_runnables(void) {
-    assert(sc_thread_get_id() == SC_MAIN_THREAD_ID);
+    assert(sc_thread_is_main());
 
     SDL_SetEventFilter(task_event_filter, NULL);
 }

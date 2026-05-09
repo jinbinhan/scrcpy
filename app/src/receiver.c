@@ -44,7 +44,7 @@ sc_receiver_destroy(struct sc_receiver *receiver) {
 
 static void
 task_set_clipboard(void *userdata) {
-    assert(sc_thread_get_id() == SC_MAIN_THREAD_ID);
+    assert(sc_thread_is_main());
 
     char *text = userdata;
 
@@ -67,7 +67,7 @@ task_set_clipboard(void *userdata) {
 
 static void
 task_uhid_output(void *userdata) {
-    assert(sc_thread_get_id() == SC_MAIN_THREAD_ID);
+    assert(sc_thread_is_main());
 
     struct sc_uhid_output_task_data *data = userdata;
 
